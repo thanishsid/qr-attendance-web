@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Attendance</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="scan-tab" data-toggle="tab" href="#scan" role="tab" aria-controls="scan"
+          aria-selected="true">Scan</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events"
+          aria-selected="false">Events</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about"
+          aria-selected="false">About</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+      <!-- Scan tab content -->
+      <div class="tab-pane active" id="scan" role="tabpanel" aria-labelledby="scan-tab">
+
+        <div class="row align-items-center">
+
+          <div class="col-lg-6 my-3">
+
+            <!-- ############# qr code elements #############-->
+            <div class="d-flex flex-row justify-content-around" id="qrcode"></div>
+            <!-- ############# END ##########################-->
+
+            <div class="mt-3">
+              <form>
+                <div class="form-group d-flex flex-column justify-content-center mb-0">
+  
+                  <div class="input-group mb-3 ">
+                    <div class="input-group-prepend col-3 pl-0">
+                      <label class="input-group-text widenFull center" for="subject">Subject</label>
+                    </div>
+                    <select class="col-9" id="subject" onchange="SelectSubList()">
+                      <option>-- Subject --</option>
+                      <option value="IT">Software Engineering</option>
+                      <option value="BM">Business Management</option>
+                    </select>
+                  </div>
+  
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend col-3 pl-0">
+                      <label class="input-group-text widenFull center" for="module">Module</label>
+                    </div>
+                    <select class="col-9" id="module">
+                      <option>-- Module --</option>
+                    </select>
+                  </div>
+  
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend col-3 pl-0">
+                      <label class="input-group-text widenFull center" for="batch">Batch No:</label>
+                    </div>
+                    <input class="col-9" type="number" id="batch" name="batch" min="1">
+                  </div>
+  
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend col-3 pl-0">
+                      <label class="input-group-text widenFull center" for="lecture">Lecture No:</label>
+                    </div>
+                    <input class="col-9" type="number" id="lecture" name="lecture" min="1">
+                  </div>
+                </div>
+              </form>
+  
+              <div class="col-12 d-inline-flex mb-3">
+                <div class="col-6">
+                  <button id="openPortal" class="btn btn-danger center widen rounderbtn" onclick="addFire()">Open
+                    Portal</button>
+                </div>
+                <div class="col-6">
+                  <button id="closePortal" class="btn btn-danger center widen rounderbtn">Close Portal</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+
+          <div class="col-lg-6 my-3">
+             <div class="liveContainer">
+               <h3>Attended Students Live View</h3><hr>
+              <ul class="px-0 py-3" id="liveAttendance">
+                
+              </ul>
+             </div> 
+            
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Events tab content -->
+      <div class="tab-pane" id="events" role="tabpanel" aria-labelledby="events-tab">Events Content</div>
+
+      <!-- about tab content -->
+      <div class="tab-pane" id="about" role="tabpanel" aria-labelledby="about-tab">About Content</div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
+  <script src="qrcode.min.js"></script>
+
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

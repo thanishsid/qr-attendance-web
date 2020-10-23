@@ -1,0 +1,70 @@
+.widenFull {
+    width: 100%;
+}
+
+.center {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+}
+
+#qrcode img {
+    width: 23em;
+    border: 0.5em solid white;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#qrcode {
+    background-color: black;
+    height: 25rem;
+}
+
+.widen {
+    width: 10em;
+}
+
+.lfMargin {
+    margin-left: 5em;
+}
+.rounderbtn{
+    border-radius: 3em;
+    background-color: teal;
+}
+
+.rounderbtn:hover{
+    border: 0.3em solid rgb(88, 1, 42);
+    transform: scale(1.1);
+}
+
+.nullFocus {
+    border: 0.3em solid red;
+}
+
+.blackbg {
+    background-color: black;
+}
+
+#dropList {
+    margin-right: 0em;
+    margin-left: 0em;
+}
+
+#liveAttendance li {
+    
+    list-style: none;
+    text-align: center;
+    padding-left: 0em;
+
+}
+
+.liveContainer {
+    background-color: rgba(88, 76, 76, 0.295);
+    text-align: center;
+    height: 91vh;
+    
+}
+
+.liveContainer h3 {
+    padding-top: 0.5em;
+}
